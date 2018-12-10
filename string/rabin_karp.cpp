@@ -1,5 +1,5 @@
 //
-// Created by Vinay Saini on 18/01/18.
+// Created by Vinay Saini on 26/11/18.
 //
 #include <iostream>
 #include <algorithm>
@@ -31,28 +31,37 @@ using namespace std;
 #define       min(a,b) ((a)<(b)?(a):(b))
 #define         max(a,b) ((a)>(b)?(a):(b))
 #define FORE(c,itr) for(__typeof((c).begin()) itr=(c).begin();itr!=(c).end();itr++)
+#define MOD 1000000007
 
 typedef long long ll;
 typedef long double ld;
 typedef pair<int,int> pii;
 typedef vector<string> vs;
 
-// O(n x m)
-int naive_searching(string pattern, string text) {
-    if(pattern.length() == 0 || text.length() == 0 || pattern.length() > text.length()) {
-        return -1;
+
+/**
+ * x^n MOD
+ * @param x
+ * @param n
+ * @return
+ */
+int pow(int x, int n) {
+    if (n == 0) return 1;
+    int p = pow(x, n/2) % MOD;
+    if(n % 2 == 0) {
+        return (int)(1ll*p*p)%MOD;
     }
-    for(int i = 0; i + pattern.length() <= text.length(); i++) {
-        int j;
-        for(j = 0; j < pattern.length(); j++) {
-            if(pattern[j] != text[i+j]) break;
-        }
-        if(j == pattern.length()) return i;
-    }
-    return -1;
+    return (int)(((1ll*p*p)%MOD)*x)%MOD;
 }
 
-int kmp(string pattern, string text) {
+int rabinKarp(string pattern, string text) {
+
+
+}
+int getHash(string s) {
+    int l = s.length();
+
+
 
 }
 
@@ -62,6 +71,5 @@ int main() {
     string text;
     cin >> pattern;
     cin >> text;
-    cout << naive_searching("", "sdsd") << endl;
+    cout << rabinKarp("", "sdsd") << endl;
 }
-
