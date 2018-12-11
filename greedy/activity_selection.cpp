@@ -55,7 +55,7 @@ int main() {
     cin >> n;
     for (int i = 0; i < n; ++i) {
         cin >> st >> ft;
-        v.push_back(make_pair(st, ft));
+        v.push_back({st, ft});
     }
     vector<pair<int, int>> result = solve(v);
     for (int i = 0; i < result.size(); ++i) {

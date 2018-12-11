@@ -1,6 +1,3 @@
-//
-// Created by Vinay Saini on 18/01/18.
-//
 
 #include <iostream>
 #include <algorithm>
@@ -21,7 +18,6 @@ using namespace std;
 #define fill(ar,val) memset(ar,val,sizeof ar)
 #define  min(a,b) ((a)<(b)?(a):(b))
 #define  max(a,b) ((a)>(b)?(a):(b))
-#define FORE(c,itr) for(__typeof((c).begin()) itr=(c).begin();itr!=(c).end();itr++)
 
 typedef long long ll;
 typedef long double ld;
@@ -29,5 +25,10 @@ typedef pair<int,int> pii;
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
+    set<int> s;
+    s.insert(4);
+    for (auto itr = s.begin(); itr != s.end(); itr++) {
+        cout << *itr << endl;
+    }
     return 0;
 }
