@@ -3,5 +3,5 @@ project(cpp_prog)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES  sets/disjoint_set.cpp)
+set(SOURCE_FILES  dp/rod_cutting.cpp)
 add_executable(cpp_prog ${SOURCE_FILES})

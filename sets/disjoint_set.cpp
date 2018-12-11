@@ -31,7 +31,7 @@ public:
     Set(int n) {
         parent = new int[n];
         rank = new int[n];
-        memset(rant, 0, sizeof(rank))
+        memset(rank, 0, sizeof(int)*n);
         this->n = n;
     }
     void make_set() {
