@@ -3,5 +3,5 @@ project(cpp_prog)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES  greedy/graph_coloring.cpp)
+set(SOURCE_FILES  sets/disjoint_set.cpp)
 add_executable(cpp_prog ${SOURCE_FILES})
