@@ -40,6 +40,9 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> ar[i];
     }
+    //corner case;
+    
+    if(n == 0) return 0;
     for (int i = 0; i < n; ++i) {
         if(i-1 >= 0 && i+1 < n) dp[i][i][0] = ar[i-1]*ar[i]*ar[i+1];
         else if(i-1 >= 0) dp[i][i][0] = ar[i-1]*ar[i]*1;
