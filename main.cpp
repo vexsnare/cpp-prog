@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <algorithm>
 #include <vector>
@@ -24,11 +23,11 @@ typedef long double ld;
 typedef pair<int,int> pii;
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-    set<int> s;
-    s.insert(4);
-    for (auto itr = s.begin(); itr != s.end(); itr++) {
-        cout << *itr << endl;
+    int n;
+    cin >> n;
+    int ar[n];
+    for (int i = 0; i < n; ++i) {
+     cin >> ar[i];
     }
     return 0;
 }

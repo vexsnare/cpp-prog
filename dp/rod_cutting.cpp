@@ -37,11 +37,11 @@ int solve(int prices[], int n) {
         return 0;
     int dp[n];
     for (int i = 0; i < n; ++i) {
-        int rev = prices[i];
+        int revenue = prices[i];
         for (int j = 0; j < i; j++) {
-            rev = max(rev, prices[j]+dp[i-j-1]);
+            revenue = max(revenue, prices[j]+dp[i-j-1]);
         }
-        dp[i] = rev;
+        dp[i] = revenue;
     }
     return dp[n-1];
 }
@@ -54,6 +54,6 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> prices[i];
     }
-    int max_revanue = solve(prices, n);
-    cout << max_revanue << endl;
+    int max_revenue = solve(prices, n);
+    cout << max_revenue << endl;
 }
