@@ -21,11 +21,7 @@
 
 using namespace std;
 
-#define debug(x) cout<<#x<<" = "<<x<<"\n"
 #define  INF (1<<29)
-#define fill(ar,val) memset(ar,val,sizeof ar)
-#define  min(a,b) ((a)<(b)?(a):(b))
-#define  max(a,b) ((a)>(b)?(a):(b))
 
 typedef long long ll;
 typedef long double ld;
@@ -41,7 +37,7 @@ int main() {
         cin >> ar[i];
     }
     //corner case;
-    
+
     if(n == 0) return 0;
     for (int i = 0; i < n; ++i) {
         if(i-1 >= 0 && i+1 < n) dp[i][i][0] = ar[i-1]*ar[i]*ar[i+1];
