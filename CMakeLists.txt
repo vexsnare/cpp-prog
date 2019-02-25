@@ -3,5 +3,5 @@ project(cpp_prog)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES tree/bst.cpp)
+set(SOURCE_FILES arrays/sorting/quick_sort.cpp)
 add_executable(cpp_prog ${SOURCE_FILES})
