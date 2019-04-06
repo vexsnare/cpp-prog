@@ -1,3 +1,6 @@
+/**
+ * https://www.geeksforgeeks.org/check-if-two-given-line-segments-intersect/
+ */
 #include <iostream>
 #include <algorithm>
 #include <vector>
