@@ -3,5 +3,5 @@ project(cpp_prog)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES tricky/longest_inc_sequence.cpp)
+set(SOURCE_FILES geometry/rectangle_intersect.cpp)
 add_executable(cpp_prog ${SOURCE_FILES})

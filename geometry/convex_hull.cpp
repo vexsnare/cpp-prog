@@ -3,8 +3,12 @@
  * MONOTONE CHAIN
  * https://en.wikibooks.org/wiki/Algorithm_Implementation/Geometry/Convex_hull/Monotone_chain
  * O (nLogn)
+ *
  */
-
+/* Input
+ * 6
+0 0 0 4 -4 0 5 0 0 -6 1 0
+ */
 #include <iostream>
 #include <algorithm>
 #include <vector>
@@ -22,10 +26,7 @@ using namespace std;
 
 struct Point {
     int x, y;
-    Point() {
-        this-> x = 0;
-        this-> y = 0;
-    };
+    Point(){};
     Point (int x, int y) {
         this-> x = x;
         this-> y = y;
