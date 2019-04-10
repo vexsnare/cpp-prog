@@ -62,6 +62,9 @@ vector<Point> findPointsInHull(const vector<Point> &points) {
     return ans;
 }
 
+/*
+ * n - number of points
+ */
 int main() {
     int n;
     cin >> n;

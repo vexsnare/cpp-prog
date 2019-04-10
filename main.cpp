@@ -14,5 +14,6 @@ using namespace std;
 #define debug(x) cout<<#x<<" = "<<x<<"\n"
 
 int main() {
+
     return 0;
 }

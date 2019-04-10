@@ -62,7 +62,7 @@ int main() {
     make_bit(ar, n);
 
     // ----- Input
-
+    // below are queries to test
     int l, r;
     cin >> l >> r;
     cout << getRangeSum(l, r) << "\n";
