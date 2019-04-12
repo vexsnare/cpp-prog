@@ -3,5 +3,5 @@ project(cpp_prog)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES geometry/closest_pair.cpp)
-add_executable(cpp_prog ${SOURCE_FILES})
+set(SOURCE_FILES arrays/water_trap.cpp)
+add_executable(cpp_prog ${SOURCE_FILES})w
