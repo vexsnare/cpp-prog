@@ -83,14 +83,14 @@ void extendSuffixTree(int pos) {
         if(activeLength == 0) {
             activeEdge = pos;
         }
-        if(activeNode->children[pos] == NULL) {
-            activeNode->children[pos] = newNode(pos, &leafEnd);
+        if(activeNode->children[text[pos]] == NULL) {
+            activeNode->children[text[pos]] = newNode(pos, &leafEnd);
             if(lastNewNode != NULL) {
                 lastNewNode->suffixLink = activeNode;
                 lastNewNode = NULL;
             }
         } else {
-            Node *next = activeNode->children[pos];
+            Node *next = activeNode->children[text[pos]];
             if(walkDown(next)) continue;
             if(text[next->start + activeLength] == text[pos]) {
                 if(lastNewNode != NULL && activeNode != root) {
@@ -104,10 +104,10 @@ void extendSuffixTree(int pos) {
             *splitEnd = next->start + activeLength - 1;
 
             Node *split = newNode(next->start, splitEnd);
-            activeNode->children[pos] = split;
-            split->children[pos] = newNode(pos, &leafEnd);
+            activeNode->children[text[pos]] = split;
+            split->children[text[pos]] = newNode(pos, &leafEnd);
             next->start  += activeLength;
-            split->children[pos] = next;
+            split->children[text[pos]] = next;
 
             if(lastNewNode != NULL) {
                 lastNewNode->suffixLink = split;
