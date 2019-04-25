@@ -3,5 +3,5 @@ project(cpp_prog)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES topcoder/DiskSpace.cpp)
+set(SOURCE_FILES topcoder/SRM_756/NewBanknote.cpp)
 add_executable(cpp_prog ${SOURCE_FILES})

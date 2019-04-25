@@ -8,6 +8,7 @@
 #include <map>
 #include <set>
 #include <stack>
+#include <bitset>
 #include <queue>
 
 using namespace std;

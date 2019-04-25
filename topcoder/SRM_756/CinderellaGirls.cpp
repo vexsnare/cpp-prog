@@ -21,20 +21,22 @@
 using namespace std;
 
 
-class DiskSpace {
+class CinderellaGirls {
 public:
-	int minDrives(vector <int> used, vector <int> total) {
-		int tot = 0;
-		for (int i = 0; i < used.size(); ++i) {
-			tot += used[i];
-		}
-		sort(total.begin(), total.end(), greater<int>());
-		int j;
-		for (j = 0; j < total.size(); ++j) {
-			if(tot <= 0) break;
-			tot -= total[j];
-		}
-		return j;
+	int count(vector <int> talent, vector <int> skill) {
+	    int count = 0;
+	    int n = talent.size();
+        for (int i = 0; i < n; ++i) {
+            bool advanced = true;
+            for (int j = 0; j < n; ++j) {
+                 if(talent[j] > talent[i] && skill[j] > skill[i]) {
+                     advanced = false;
+                     break;
+                 }
+            }
+            if (advanced) count++;
+        }
+        return count;
 	}
 };
 
@@ -58,11 +60,11 @@ bool KawigiEdit_RunTest(int testNum, vector <int> p0, vector <int> p1, bool hasA
 	}
 	cout << "}";
 	cout << "]" << endl;
-	DiskSpace *obj;
+	CinderellaGirls *obj;
 	int answer;
-	obj = new DiskSpace();
+	obj = new CinderellaGirls();
 	clock_t startTime = clock();
-	answer = obj->minDrives(p0, p1);
+	answer = obj->count(p0, p1);
 	clock_t endTime = clock();
 	delete obj;
 	bool res;
@@ -100,20 +102,20 @@ int main() {
 	
 	{
 	// ----- test 0 -----
-	int t0[] = {300,525,110};
+	int t0[] = {10,20,30};
 			p0.assign(t0, t0 + sizeof(t0) / sizeof(t0[0]));
-	int t1[] = {350,600,115};
+	int t1[] = {30,20,10};
 			p1.assign(t1, t1 + sizeof(t1) / sizeof(t1[0]));
-	p2 = 2;
+	p2 = 3;
 	all_right = KawigiEdit_RunTest(0, p0, p1, true, p2) && all_right;
 	// ------------------
 	}
 	
 	{
 	// ----- test 1 -----
-	int t0[] = {1,200,200,199,200,200};
+	int t0[] = {10,20,30};
 			p0.assign(t0, t0 + sizeof(t0) / sizeof(t0[0]));
-	int t1[] = {1000,200,200,200,200,200};
+	int t1[] = {10,20,30};
 			p1.assign(t1, t1 + sizeof(t1) / sizeof(t1[0]));
 	p2 = 1;
 	all_right = KawigiEdit_RunTest(1, p0, p1, true, p2) && all_right;
@@ -122,34 +124,23 @@ int main() {
 	
 	{
 	// ----- test 2 -----
-	int t0[] = {750,800,850,900,950};
+	int t0[] = {10,10,10};
 			p0.assign(t0, t0 + sizeof(t0) / sizeof(t0[0]));
-	int t1[] = {800,850,900,950,1000};
+	int t1[] = {1,100,10000};
 			p1.assign(t1, t1 + sizeof(t1) / sizeof(t1[0]));
-	p2 = 5;
+	p2 = 3;
 	all_right = KawigiEdit_RunTest(2, p0, p1, true, p2) && all_right;
 	// ------------------
 	}
 	
 	{
 	// ----- test 3 -----
-	int t0[] = {49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,49};
+	int t0[] = {46,70,39,53,10,47,73,95,95,27};
 			p0.assign(t0, t0 + sizeof(t0) / sizeof(t0[0]));
-	int t1[] = {50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50};
+	int t1[] = {81,47,64,65,34,55,75,16,80,69};
 			p1.assign(t1, t1 + sizeof(t1) / sizeof(t1[0]));
-	p2 = 49;
+	p2 = 3;
 	all_right = KawigiEdit_RunTest(3, p0, p1, true, p2) && all_right;
-	// ------------------
-	}
-	
-	{
-	// ----- test 4 -----
-	int t0[] = {331,242,384,366,428,114,145,89,381,170,329,190,482,246,2,38,220,290,402,385};
-			p0.assign(t0, t0 + sizeof(t0) / sizeof(t0[0]));
-	int t1[] = {992,509,997,946,976,873,771,565,693,714,755,878,897,789,969,727,765,521,961,906};
-			p1.assign(t1, t1 + sizeof(t1) / sizeof(t1[0]));
-	p2 = 6;
-	all_right = KawigiEdit_RunTest(4, p0, p1, true, p2) && all_right;
 	// ------------------
 	}
 	
