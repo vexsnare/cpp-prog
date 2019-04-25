@@ -26,14 +26,11 @@ public:
 	string check(string text) {
 	    int n = text.length();
 	    int isPun = false;
-        for (int i = 0; i < n-1; ++i) {
-            string substr = text.substr(i, i+2);
-            int p1 = text.find(substr, 0);
+        for (int i = 0; i < n-3; ++i) {
+            string substr = text.substr(i, 2);
+            int p1 = text.find(substr, i+2);
             if(p1 != string::npos) {
-                int p2 = text.find(substr, p1+2);
-                if (p2 != string::npos && p1 != p2) {
-                    isPun = true;
-                }
+                isPun = true;
             }
          }
         return isPun ? "pun" : "not a pun";
