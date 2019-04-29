@@ -26,6 +26,32 @@ typedef long double ld;
 typedef pair<int,int> pii;
 typedef vector<string> vs;
 
+
 int main() {
+    int n;
+    cin >> n;
+    int ar[n];
+    for (int i = 0; i < n; ++i) {
+        cin >> ar[i];
+    }
+    int i = 0;
+    int j = n-1;
+    vector<char> ans;
+    int last = -1;
+    while (i <= j) {
+        if(ar[i] < ar[j] && ar[i] >= last) {
+            last = ar[i];
+            i++;
+            ans.push_back('L');
+        } else if(ar[j] > last) {
+            last = ar[j];
+            j--;
+            ans.push_back('R');
+        } else break;
+    }
+    printf("%d\n", ans.size());
+    for (int k = 0; k < ans.size(); ++k) {
+        cout << ans[k];
+    }
     return 0;
 }

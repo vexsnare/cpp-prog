@@ -153,13 +153,52 @@ public:
         }
         print(root);
     }
+    vector<char> ans;
+    string qs;
+
+    bool findNext(int i, Node *current) {
+        if(current->child[qs[i]] == NULL) {
+            for (int i = 0; i < MAX_CHAR; ++i) {
+                if(current->child[i] != NULL && qs[i] < i) {
+                    ans.push_back(i);
+                    return true;
+                }
+            }
+            return false;
+        } else {
+            int l = current->start;
+            int r = *(current->end);
+            for (int k = l; k <= r; ++k) {
+                if(qs[i] == s[k]) {
+                    ans.push_back(s[k]);
+                    i++;
+                } else {
+                    if(qs[i] < s[k]) {
+                        ans.push_back(s[k]);
+                        return;
+                    } else {
+                        found = false;
+                        return;
+                    }
+                }
+            }
+            findNext(i, current->child[qs[i]]);
+        }
+    }
 
 };
 
 int main() {
-    string s = "uiuiqu$";
-   // cin >> s;
+    string s = "$";
+    cin >> s;
     SuffixTree suffixTree(s);
     suffixTree.build();
+    int q;
+    cin >> q;
+    while (q--) {
+        cin >> s;
+        string nextStr = suffixTree.findNext();
+        cout << nextStr << endl;
+    }
 
 }

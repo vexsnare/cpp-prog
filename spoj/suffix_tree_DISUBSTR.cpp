@@ -36,7 +36,9 @@ struct Node {
     Node(int start, int *end) {
         this->start = start;
         this->end = end;
-        memset(child, NULL, sizeof(child));
+        for (int i = 0; i < MAX_CHAR; ++i) {
+            this->child[i] = NULL;
+        }
     }
     Node *suffixLink = NULL;
 };
@@ -146,20 +148,40 @@ public:
         }
     }
 
+    int countDistSubstring(Node *current) {
+        if(s[current->start] == '$')
+            return 0;
+        else {
+            int count = current == root ? 0 : *(current->end) - current->start + 1;
+            for (int i = 0; i < MAX_CHAR; ++i) {
+                if (current->child[i] != NULL) {
+                    count =
+                    count += countDistSubstring(current->child[i]);
+                }
+            }
+            return count;
+        }
+    }
 
-    void build() {
+
+    Node* build() {
         for (int i = 0; i < s.length(); ++i) {
             extendTree(i);
         }
-        print(root);
+        return root;
     }
 
 };
 
 int main() {
-    string s = "uiuiqu$";
-   // cin >> s;
-    SuffixTree suffixTree(s);
-    suffixTree.build();
+    int t;
+    cin >> t;
+    while (t--) {
+        string s;
+        cin >> s;
+        SuffixTree suffixTree(s);
+        Node* root = suffixTree.build();
+        cout << suffixTree.countDistSubstring(root) << "\n";
+    }
 
 }
