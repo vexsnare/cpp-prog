@@ -3,6 +3,7 @@
 #include <vector>
 #include <cstdio>
 #include <string>
+#include <cstring>
 #include <list>
 #include <cstdlib>
 #include <map>
@@ -12,6 +13,13 @@
 #include <queue>
 
 using namespace std;
+
+
+int main() {
+    return 0;
+}
+
+
 
 #define debug(x) cout<<#x<<" = "<<x<<"\n"
 #define   REP(i,n) for(int (i)=0;(i)<(n);(i)++)
@@ -25,7 +33,3 @@ typedef long long ll;
 typedef long double ld;
 typedef pair<int,int> pii;
 typedef vector<string> vs;
-
-int main() {
-    return 0;
-}
