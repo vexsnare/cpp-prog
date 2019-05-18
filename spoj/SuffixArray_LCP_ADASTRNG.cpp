@@ -86,7 +86,7 @@ vector<int> lcpKasaiAlgo(string s, vector<int> &suffixArray) {
     // i is index in original string
     for (int i = 0; i < n; ++i) {
         if(ranks[i] == n-1) {
-            lcp[i] = 0;
+            k = 0;
             continue;
         }
         // Next suffix's Index in original string which is next in suffixArray after i
@@ -98,23 +98,20 @@ vector<int> lcpKasaiAlgo(string s, vector<int> &suffixArray) {
     return lcp;
 }
 
+long long ans[26];
 int main() {
     string s = "aabca";
-   // cin >> s;
+    cin >> s;
+    int n = s.length();
     vector<int> suffixArray = findSuffixArray(s);
-
-    //Print Answer
-    for (int i = 0; i < suffixArray.size(); ++i) {
-        cout << suffixArray[i] << " ";
+    vector<int> lcpArray = lcpKasaiAlgo(s, suffixArray);
+    for (int i = 0; i < n; ++i) {
+        ans[s[suffixArray[i]]-'a'] += n-suffixArray[i] - (i-1 >= 0 ? lcpArray[i-1] : 0);
+    }
+    for (int i = 0; i < 26; ++i) {
+        cout << ans[i] << " ";
     }
     printf("\n");
-
-    vector<int> lcpArray = lcpKasaiAlgo(s, suffixArray);
-    //Print LCP Array
-    for (int i = 0; i < lcpArray.size() - 1; ++i) {
-        cout << lcpArray[i] << " ";
-    }
-
     return 0;
 }
 

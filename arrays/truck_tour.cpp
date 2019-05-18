@@ -24,6 +24,7 @@ using namespace std;
  */
 
 
+// Sol1:
 // https://stackoverflow.com/questions/2286849/algorithm-for-truck-moving-around-a-circle-of-gas-stations
 int solve(int petrol[], int dist[], int n) {
     int current_petrol = 0;
@@ -40,12 +41,41 @@ int solve(int petrol[], int dist[], int n) {
     return -1;
 }
 
+//Sol2:
+//https://www.geeksforgeeks.org/find-a-tour-that-visits-all-stations/
+int solve2(int petrol[], int dist[], int n) {
+    int start = 0;
+    int i = 0;
+    int current_petrol = 0;
+    while(start < n) {
+        current_petrol += petrol[i]-dist[i];
+        while (current_petrol < 0 && start < i) {
+            current_petrol -= petrol[start]-dist[start];
+            start++;
+        }
+        if(current_petrol < 0) {
+            current_petrol = 0;
+            start++;
+            i++;
+            continue;
+        }
+        if(i+1%n == start) {
+            return start;
+        } else {
+            i = (i+1)%n;
+        }
+    }
+    return -1;
+}
 int main() {
     int n;
     cin >> n;
     int petrol[n];
     int dist[n];
-    int start = solve(petrol, dist, n);
+    for (int i = 0; i < n; ++i) {
+        cin >> petrol[i] >> dist[i];
+    }
+    int start = solve2(petrol, dist, n);
     printf("%d\n", start);
     return 0;
 }
