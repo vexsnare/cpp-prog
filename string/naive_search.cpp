@@ -38,7 +38,7 @@ typedef pair<int,int> pii;
 typedef vector<string> vs;
 
 // O(n x m)
-int naive_searching(string pattern, string text) {
+int naive_search(string pattern, string text) {
     if(pattern.length() == 0 || text.length() == 0 || pattern.length() > text.length()) {
         return -1;
     }
@@ -52,16 +52,11 @@ int naive_searching(string pattern, string text) {
     return -1;
 }
 
-int kmp(string pattern, string text) {
-
-}
-
-
 int main() {
     string pattern;
     string text;
     cin >> pattern;
     cin >> text;
-    cout << naive_searching("", "sdsd") << endl;
+    cout << naive_search("", "sdsd") << endl;
 }
 

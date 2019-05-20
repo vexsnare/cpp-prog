@@ -3,5 +3,5 @@ project(cpp_prog)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES spoj/SuffixArray_LCP_ADASTRNG.cpp)
+set(SOURCE_FILES spoj/max_flow_MTOTALF.cpp)
 add_executable(cpp_prog ${SOURCE_FILES})
