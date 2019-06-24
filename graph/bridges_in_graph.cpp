@@ -28,28 +28,12 @@ public:
         edges[u].push_back(v);
         edges[v].push_back(u);
     }
-    // --- dfs
-    void go(bool visited[], int x) {
-        cout << x << " ";
-        visited[x] = true;
-        for (int i = 0; i < edges[x].size(); ++i) {
-            int adj = edges[x][i];
-            if(!visited[adj]) {
-                go(visited, adj);
-            }
-        }
-    }
-    void dfs(int start) {
-        bool visited[E];
-        fill(visited, visited + V, false);
-        go(visited, start);
-        cout << "\n";
-    }
 
     // -- Finding bridges
     void solve(int tin[], int tlow[], int cur, int parent, int time, vector<pair<int, int>> &ans, bool visited[]) {
         tlow[cur] = tin[cur] = time;
         visited[cur] = true;
+        time++;
         for (int i = 0; i < edges[cur].size(); ++i) {
             int nb = edges[cur][i];
             if(parent == nb) continue;

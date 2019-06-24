@@ -3,5 +3,5 @@ project(cpp_prog)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES codeforces/563/E.cpp)
+set(SOURCE_FILES graph/kosaraju_scc.cpp)
 add_executable(cpp_prog ${SOURCE_FILES})
