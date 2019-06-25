@@ -43,5 +43,12 @@ public:
 
 
 int main() {
+    int E, V, u, v;
+    cin >> V >> E;
+    Graph g(E, V);
+    for (int i = 0; i < E; ++i) {
+        cin >> u >> v;
+        g.addEdge(u, v);
+    }
     return 0;
 }
