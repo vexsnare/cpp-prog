@@ -66,7 +66,6 @@ int main() {
         cin >> u >> v;
         g.addEdge(u, v);
     }
-    g.dfs(0);
     vector<pair<int, int>> bridges = g.findBridges();
     for (int j = 0; j < bridges.size(); ++j) {
         cout << bridges[j].first << " " << bridges[j].second << "\n";

@@ -109,14 +109,16 @@ int main() {
     }
     stack<int> vertexByFinishTime = g.getVertexByFinishTime();
     vector<vector<int>> components = gReverse.getStronglyConnectedComponents(vertexByFinishTime);
-    cout << components.size() << endl;
     for (int i = 0; i < components.size(); ++i) {
         vector<int> &component = components[i];
-        sort(component.begin(), component.end());
-        for (int j = 0; j < component.size() && components.size() > 1; ++j) {
-            cout << component[j] + 1 << " ";
+        if(component.size() > 1) {
+            cout << component.size() << "\n";
+            sort(component.begin(), component.end());
+            for (int j = 0; j < component.size() && components.size() > 1; ++j) {
+                cout << component[j] + 1 << " ";
+            }
+            cout << "\n";
         }
-        cout << "\n";
     }
 
     return 0;

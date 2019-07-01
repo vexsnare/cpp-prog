@@ -1,5 +1,5 @@
 //
-// Created by Vinay Saini on 2019-06-21.
+// Created by Vinay Saini on 2019-07-01.
 //
 
 #include <iostream>
@@ -38,16 +38,41 @@ public:
     void addDirectionalEdge(int u, int v) {
         adj[u].push_back(v);
     }
+    vector<vector<int>> dist;
+    bool calculate() {
+
+        for (int i = 0; i < V; ++i) {
+            vector<int> temp(V, INF);
+            dist.push_back(temp);
+        }
+
+        memset(dist, INF , V*sizeof(dist));
+        for (int i = 0; i < V; ++i) {
+            for (int j = 0; j < V; ++j) {
+                for (int k = 0; k < V; ++k) {
+                    dist[i][j] = max(dist[i][j], dist[i][k] + dist[k][j]);
+                }
+
+            }
+        }
+    }
+
+    int findShortestDist(int u, int v) {
+        return dist[u][v];
+    }
 };
 
 
 int main() {
-    int E, V, u, v;
+    int V, E, u, v;
     cin >> V >> E;
     Graph g(V);
     for (int i = 0; i < E; ++i) {
         cin >> u >> v;
         g.addEdge(u, v);
     }
+    cout << "Enter input : \n";
+    cin >> u >> v;
+    cout << dist[u][v] << "\n";
     return 0;
 }
