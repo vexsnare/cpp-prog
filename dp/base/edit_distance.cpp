@@ -1,5 +1,5 @@
 //
-// Created by Vinay Saini on 2019-06-18.
+// Created by Vinay Saini on 2019-07-25.
 //
 
 #include <iostream>
@@ -22,18 +22,14 @@ using namespace std;
 #define min(a, b) ((a)<(b)?(a):(b))
 #define max(a, b) ((a)>(b)?(a):(b))
 
-// Return gcd in long(n), where n = max(x, y)
-long long gcd(long long x, long long y) {
-    return y == 0 ? x : gcd()
-}
-
-// Returns x^n in log2(n)
-long long pow(x, n) {
-    if(n == 0) return 1;
-    long long ans = pow(x, n/2);
-    ans = ans*ans;
-    if(n%2 != 0) ans = x*ans;
-    return ans;
+/**
+ * https://www.techiedelight.com/levenshtein-distance-edit-distance-problem
+ * @param s1
+ * @param s2
+ * @return
+ */
+int findMinEditDistance(string &s1, string &s2) {
+    
 }
 
 int main() {
