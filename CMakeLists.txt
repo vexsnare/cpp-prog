@@ -3,5 +3,5 @@ project(cpp_prog)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES dp/base/knapsack_0_1.cpp)
+set(SOURCE_FILES dp/base/edit_distance.cpp)
 add_executable(cpp_prog ${SOURCE_FILES})
