@@ -24,11 +24,11 @@ using namespace std;
 
 // Return gcd in long(n), where n = max(x, y)
 long long gcd(long long x, long long y) {
-    return y == 0 ? x : gcd()
+    return y == 0 ? x : gcd(y%x, x);
 }
 
 // Returns x^n in log2(n)
-long long pow(x, n) {
+long long pow(long long x, long long n) {
     if(n == 0) return 1;
     long long ans = pow(x, n/2);
     ans = ans*ans;
@@ -37,5 +37,6 @@ long long pow(x, n) {
 }
 
 int main() {
+
     return 0;
 }
