@@ -45,3 +45,5 @@ int main() {
     cout << solve(0, input.size()-1, input);
     return 0;
 }
+
+
